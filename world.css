@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+:root{--ink:#333d37;--muted:#7b8075;--green:#57715b;--paper:#f5f2e9}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px}body:before{content:'';position:fixed;inset:0;pointer-events:none;z-index:8;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.2' filter='url(%23n)'/%3E%3C/svg%3E")}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-visible,[role=button]:focus-visible{outline:3px solid #b77e4f;outline-offset:6px}header{height:96px;display:flex;align-items:center;justify-content:space-between;max-width:1440px;margin:auto;padding:0 54px}.brand{color:var(--ink);text-decoration:none;font-size:19px;font-weight:600;display:flex;align-items:center;gap:12px;letter-spacing:-.7px}.brand-icon{font-size:34px;color:var(--green)}.version{font-size:10px;font-weight:400;letter-spacing:.2px;border:1px solid #d6dbcf;padding:6px 9px;border-radius:20px;margin-left:8px;color:#6d7869}nav{display:flex;gap:29px;align-items:center}nav button,footer button,#reset{border:0;background:none;font-size:12px}nav button:last-child{border:1px solid #c9cebf;padding:11px 18px;border-radius:24px}nav button:hover,footer button:hover{color:#a56a3d}main{max-width:1440px;margin:auto;position:relative}.intro{position:relative;z-index:2;padding:38px 0 0 74px;pointer-events:none}.eyebrow{font-size:9px;letter-spacing:1.8px;color:#6a7967;display:flex;align-items:center;gap:9px}.eyebrow span{width:6px;height:6px;background:#89a178;border-radius:100%}h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.04;font-size:64px;letter-spacing:-2px;margin:22px 0 18px}h1 em{font-weight:400;color:#75856b}.intro p{font-size:13px;line-height:1.9;color:#747a70}.location{position:absolute;right:70px;top:48px;text-align:right}.location span{font-size:9px;letter-spacing:1.8px;color:#81917d}.location p{font-family:Georgia,serif;font-style:italic;line-height:1.7;font-size:15px;color:#8c9082}.world-wrap{margin:-190px auto -28px;max-width:1120px;position:relative}#world{display:block;width:100%;height:auto;overflow:visible}.hotspot{cursor:pointer;outline:none}.hotspot .label-bg{fill:#fffdf7;stroke:#d9ddcf;stroke-width:1;transition:fill .2s}.hotspot:hover .label-bg,.hotspot:focus-visible .label-bg{fill:#e5eddd;stroke:#6b805d}.hotspot .label-text{font:500 12px 'DM Sans',sans-serif;fill:#40513d}.hotspot .plus{fill:#637957;font:16px sans-serif}.hotspot:hover{filter:drop-shadow(0 5px 6px #48533920)}.hotspot .beacon{fill:#f9f7ed;stroke:#8ca17c;stroke-width:2}.hotspot.visited .beacon{fill:#a2b58d}.hotspot .guide{stroke:#9aa88c;stroke-width:1;stroke-dasharray:3 4;fill:none}.world-caption{text-align:center;color:#8a8c7e;font-size:11px;margin:0 0 29px}.spark{color:#a9a077;margin-right:8px;font-size:18px}.explore-bar{margin:0 54px;border-top:1px solid #dfe0d5;border-bottom:1px solid #dfe0d5;display:flex;justify-content:space-between;align-items:center;padding:18px 12px;font-size:11px;color:#7a8174}.mouse-icon{font-size:18px;margin-right:9px;color:#5f7458}.dots{letter-spacing:4px;color:#849773;padding-left:15px}.discoveries #count{color:#476440;font-weight:700}footer{max-width:1440px;padding:27px 66px;margin:auto;display:flex;justify-content:space-between;align-items:center;font-size:9px;color:#8d9185;letter-spacing:1px}footer button{font-size:10px;color:#79836e;letter-spacing:0}.footer-dot{margin:0 9px}.heart{color:#a17e64;font-size:17px;margin-left:4px}.mobile-nav{display:none}dialog{border:1px solid #dedfd3;background:#fffdf7;color:var(--ink);border-radius:22px;padding:42px;width:min(620px,calc(100vw - 30px));max-height:86vh;box-shadow:0 30px 100px #29372733}dialog::backdrop{background:#30463539;backdrop-filter:blur(6px)}#close{position:sticky;float:right;top:0;border:1px solid #e1e4d7;border-radius:50%;background:#f5f4ec;height:33px;width:33px;font-size:24px;line-height:1;z-index:2}dialog .kicker{font-size:10px;letter-spacing:2px;color:#7f8d70;text-transform:uppercase;margin:9px 0 14px}dialog h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:38px;line-height:1.1;margin:15px 0 18px}dialog h3{font-size:16px;margin:24px 0 7px}dialog p{font-size:14px;line-height:1.85;color:#70776b}dialog .meta{font-size:11px;color:#8b917f;margin:3px 0 12px}dialog img{width:100%;height:auto;border:1px solid #e2e2d7;border-radius:10px;margin:15px 0}dialog .cta{display:inline-block;background:#526b49;color:white;border:0;text-decoration:none;padding:13px 20px;border-radius:24px;font-size:12px;margin:14px 8px 0 0}dialog .secondary{background:#eeefe5;color:#4e6346}dialog hr{border:0;border-top:1px solid #e1e4d8;margin:25px 0}dialog .quote{font-family:Georgia,serif;font-style:italic;font-size:24px;line-height:1.5;color:#5c7052}#toast{position:fixed;bottom:28px;left:50%;transform:translate(-50%,20px);background:#465b3f;color:#fffdf5;padding:13px 24px;border-radius:30px;font-size:12px;opacity:0;pointer-events:none;transition:.3s;z-index:20}#toast.show{opacity:1;transform:translate(-50%,0)}#avatar{transition:transform 1.1s cubic-bezier(.23,1,.32,1)}.steam{animation:steam 3s ease-in-out infinite}.leaf{animation:sway 5s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}.twinkle{animation:twinkle 4s ease-in-out infinite}@keyframes steam{50%{opacity:.3;transform:translateY(-6px)}}@keyframes sway{50%{transform:rotate(2deg)}}@keyframes twinkle{50%{opacity:.3}}@media(min-width:1500px){header{height:112px}.world-wrap{max-width:1200px}}@media(max-width:850px){header{padding:0 25px;height:82px}.version{display:none}nav{gap:16px}.intro{padding:28px 30px 0}h1{font-size:52px}.location{right:30px;top:42px}.world-wrap{margin:-90px auto -10px}.explore-bar{margin:0 25px}.dots{display:none}footer{padding:25px;gap:15px}footer>span:last-child{display:none}}@media(max-width:560px){header{height:72px;padding:0 20px}.brand{font-size:15px;gap:7px}.brand-icon{font-size:28px}nav button{display:none}nav button:last-child{display:block;font-size:11px;padding:9px 13px}nav{gap:0}.intro{padding:28px 25px 0}.eyebrow{font-size:7px;letter-spacing:1.1px}h1{font-size:46px;margin:18px 0 14px}.intro p{font-size:12px}.location{display:none}.world-wrap{margin:-4px 0 -6px;overflow:hidden}#world{width:142%;max-width:none;margin-left:-20%}.world-caption{font-size:9px;padding:0 15px;margin-bottom:20px}.explore-bar{margin:0 20px;padding:14px 0;gap:8px;font-size:9px}.explore-bar>div:first-child{display:none}#reset{font-size:10px}.mobile-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:20px}.mobile-nav button{border:1px solid #d9dece;background:#faf9f1;padding:9px 12px;border-radius:20px;font-size:11px}footer{padding:10px 20px 25px;flex-wrap:wrap;justify-content:center;font-size:8px}dialog{padding:27px}dialog h2{font-size:32px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+@media(max-width:1000px){.location{display:none}}
+@media(max-width:560px){#world{width:120%;margin-left:-10%}}
+
+/* Keep the welcome philosophy visible at every screen size. */
+.location p{margin-top:0}
+@media(max-width:1000px){.location{display:block;position:relative;top:auto;right:auto;text-align:left;margin:22px 30px 0}.location p{font-size:13px;line-height:1.7}.world-wrap{margin-top:-60px}}
+@media(max-width:560px){.location{margin:18px 25px 0}.location p{font-size:12px}.world-wrap{margin-top:-25px}.brand{font-size:14px;letter-spacing:-.4px}}
+
+/* A compact, professional experience panel within the softer world. */
+.journey-panel h2{font-size:36px;letter-spacing:-.7px;line-height:1.12;margin-bottom:30px}
+.journey-panel .career-entry{padding:0 0 24px;margin:0 0 24px;border-bottom:1px solid #e1e4d8}
+.journey-panel .company-heading{display:flex;align-items:center;gap:14px}
+dialog .journey-panel img.company-logo{width:32px;height:32px;object-fit:contain;flex:0 0 32px;border:0;border-radius:0;margin:0}
+dialog .journey-panel img.kt-logo{padding:2px}
+.journey-panel .company-heading h3{font-size:16px;margin:0 0 5px;line-height:1.3}
+.journey-panel .company-heading .meta{margin:0;line-height:1.6}
+.journey-panel .career-bullets{list-style:none;padding-left:0;margin:14px 0 0 46px;color:#687263;font-size:13px;line-height:1.75}
+.journey-panel .career-bullets li{position:relative;padding-left:15px;margin-bottom:7px}
+.journey-panel .career-bullets li::before{content:'';position:absolute;left:1px;top:.78em;width:4px;height:4px;border-radius:50%;background:#8d9b80}
+.journey-panel .career-bullets li:last-child{margin-bottom:0}
+dialog .journey-panel .career-progression{font-size:10px;line-height:1.7;margin:15px 0 0;color:#7e8774;letter-spacing:-.1px}
+.career-progression span{padding:0 3px;color:#b0b7a6}
+.journey-panel h3.section-label{font-size:9px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:#889479;margin:0 0 18px}
+.journey-panel .education-entry+.education-entry{margin-top:22px}
+.journey-panel .education-entry h3{font-size:14px;line-height:1.5;margin:0 0 6px}
+.journey-panel .education-entry p{font-size:12px;line-height:1.7;margin:0}
+.journey-panel .education-entry .meta{font-size:10px;margin-top:6px}
+@media(max-width:560px){.journey-panel h2{font-size:31px}.journey-panel .career-bullets{font-size:12px;margin-left:44px}.journey-panel .company-heading{gap:12px}.journey-panel .career-progression{line-height:1.9}}
+
+/* Loose thoughts: a small journal. */
+dialog .post-list{list-style:none;padding:0;margin:26px 0 14px;border-top:1px solid #e1e4d8}
+dialog .post-list li{border-bottom:1px solid #e1e4d8}
+dialog .post-link{display:block;width:100%;text-align:left;background:none;border:0;padding:20px 0}
+dialog .post-link span{display:block}
+dialog .post-meta{font-size:11px;color:#6f7a66;letter-spacing:.3px;margin-bottom:7px}
+dialog .post-title{font-family:'DM Serif Display',Georgia,serif;font-size:22px;line-height:1.3;color:var(--ink);margin-bottom:7px}
+dialog .post-link:hover .post-title{color:#a56a3d}
+dialog .post-summary{font-size:13px;line-height:1.7;color:#70776b}
+dialog .back-link{border:0;background:none;padding:8px 0;font-size:12px;color:#5c7052}
+dialog .back-link:hover{color:#a56a3d}
+dialog .post h2{font-size:32px;line-height:1.2}
+@media(prefers-reduced-motion:reduce){#clock-sec{display:none}}
+@media(max-width:560px){dialog .post h2{font-size:27px}dialog .post-title{font-size:20px}}
+
+.journey-panel .education-entry{display:flex;align-items:flex-start;gap:14px}
+.journey-panel .education-entry img.company-logo{margin-top:2px}
+@media(max-width:560px){.journey-panel .education-entry{gap:12px}}
+
+/* The companion: walks via script, props appear at each corner. */
+#avatar{transition:none}
+#shelf-book{transition:opacity .25s}#shelf-book.taken{opacity:0}
+#avatar .prop{opacity:0;transition:opacity .25s;pointer-events:none}
+#avatar .prop.on{opacity:1}
+#avatar .prop-in,#avatar .scribble{transform-box:fill-box;transform-origin:center}
+#avatar .prop.on[data-prop=journey] .prop-in{animation:take-book .7s cubic-bezier(.2,.9,.3,1) both}
+#avatar .prop.on[data-prop=coffee] .prop-in{animation:oc-sip 3.4s ease-in-out .3s infinite}
+#avatar .prop.on[data-prop=projects] .prop-in{animation:idea 1.4s ease-in-out infinite}
+#avatar .prop.on[data-prop=notes] .prop-in{animation:jot .5s ease-in-out infinite}
+#avatar .prop.on[data-prop=notes] .scribble{stroke-dasharray:40;animation:scribble 1.2s linear infinite}
+#avatar .prop.on[data-prop=contact] .prop-in{animation:send 1.8s ease-in-out infinite}
+@keyframes take-book{from{transform:translate(18px,-46px) scale(.6);opacity:0}to{transform:none;opacity:1}}
+@keyframes sip{0%,55%,100%{transform:none}25%,40%{transform:translate(-15px,1px) rotate(-14deg)}}
+@keyframes idea{50%{transform:scale(1.25) rotate(8deg);opacity:.7}}
+@keyframes jot{50%{transform:translate(2px,2px) rotate(6deg)}}
+@keyframes scribble{from{stroke-dashoffset:40}to{stroke-dashoffset:0}}
+@keyframes send{0%{transform:translateY(4px);opacity:0}30%{opacity:1}100%{transform:translateY(-16px);opacity:0}}
+
+/* Off the clock: one small evening scene and a paragraph in her own voice. */
+dialog .off-clock-panel .oc-story{font-size:15px;line-height:1.85;color:#525c50;margin:0 0 26px}
+.off-clock-panel .un-peu{font-family:Georgia,serif;font-style:italic;font-size:1.12em;line-height:1;color:#96592f;white-space:nowrap}
+.off-clock-panel .coffee-invite{padding-top:23px;border-top:1px solid #e0e3d6}
+.off-clock-panel .coffee-invite>p:first-child{font-family:'DM Serif Display',Georgia,serif;color:#43523e;font-size:23px;line-height:1.3;margin:0 0 4px}
+.off-clock-panel .coffee-invite .meta{font-size:10px;margin-top:10px}
+@media(max-width:560px){dialog .off-clock-panel .oc-story{font-size:14px}.off-clock-panel .coffee-invite>p:first-child{font-size:21px}}
+
+/* Front door: the first thing a visitor sees. */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.door-intro{position:fixed;inset:0;z-index:30;background:var(--paper);display:grid;place-items:center;overflow:auto;padding:56px 16px 24px}
+.door-stage{text-align:center;width:100%;max-width:360px}
+.door-intro h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:44px;letter-spacing:-1px;line-height:1.1;margin:0}
+.door-skip{position:absolute;top:14px;right:16px;border:0;background:none;font-size:12px;color:#5f6b5a;padding:14px 12px;min-height:44px}
+.door-skip:hover{color:#a56a3d}
+.facade{position:relative;width:min(320px,100%);height:350px;margin:28px auto 0;background:#dfe1d5;border-radius:26px 26px 0 0;border-bottom:14px solid #e4d2b2}
+.nameplate{position:absolute;top:30px;left:50%;transform:translateX(-50%);background:#fffdf7;border:1px solid #d6dbcf;border-radius:14px;padding:5px 16px;font-family:Georgia,serif;font-style:italic;font-size:13px;color:#525c50;white-space:nowrap}
+.doorway{position:absolute;left:50%;bottom:0;width:156px;height:256px;margin-left:-78px;background:radial-gradient(circle at 50% 60%,#fff6d8,#f3dfae);border:9px solid #f6f0e2;border-bottom:0;border-radius:82px 82px 0 0;perspective:800px}
+.door-leaf{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;border-radius:73px 73px 0 0;background:#b98f6a;box-shadow:inset -7px 0 0 #a57c59,inset 0 -8px 0 #a57c59;transform-origin:left center;transition:transform .9s cubic-bezier(.6,0,.2,1)}
+.door-leaf:hover{background:#c0966f}
+.door-leaf:focus-visible{outline-offset:12px}
+.door-window{position:absolute;top:30px;left:50%;width:56px;height:56px;margin-left:-28px;border-radius:50%;background:#f7e3ae;border:5px solid #d9b991;box-shadow:0 0 22px #f7e3ae}
+.door-panel{position:absolute;left:26px;right:28px;height:48px;border:3px solid #a57c59;border-radius:6px}
+.door-panel.p1{top:112px}.door-panel.p2{top:174px}
+.door-knob{position:absolute;right:13px;top:140px;width:13px;height:13px;border-radius:50%;background:#e9c778;box-shadow:0 2px 0 #c2a35f}
+.door-bubble{position:absolute;left:calc(50% + 58px);top:62px;background:#fffdf7;border:1px solid #d6dbcf;border-radius:16px 16px 16px 4px;padding:9px 14px;font-size:13px;color:var(--ink);white-space:nowrap;opacity:0;transform:scale(.7);transform-origin:left bottom;transition:opacity .25s,transform .25s cubic-bezier(.2,1.4,.4,1)}
+.door-mailbox{position:absolute;left:22px;bottom:0;width:46px}
+.door-plant{position:absolute;right:8px;bottom:-4px;width:72px}
+.door-mat{position:absolute;left:50%;bottom:-14px;width:128px;margin-left:-64px;height:14px;line-height:14px;background:#a6ab8a;border-radius:3px;font-size:8px;font-weight:700;letter-spacing:3px;color:#33402f}
+.door-entry{min-height:96px;margin-top:26px}
+.door-hint{font-size:13px;color:#5f6b5a;margin:0;padding-top:12px}
+.door-form{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.door-form[hidden]{display:none}
+.door-form input{font:inherit;font-size:16px;color:var(--ink);background:#fffdf7;border:1px solid #b9c0ae;border-radius:24px;padding:11px 18px;width:210px;min-height:46px}
+.door-form input::placeholder{color:#737b6c}
+.door-form input:focus-visible{outline:3px solid #b77e4f;outline-offset:2px}
+.door-form button{background:#526b49;color:#fff;border:0;border-radius:24px;padding:0 20px;font-size:13px;min-height:46px}
+.door-form button:hover{background:#465b3f}
+.door-intro.knocking .door-leaf{animation:knock .6s}
+.door-intro.asked .door-bubble{opacity:1;transform:none}
+.door-intro.open .door-leaf{transform:rotateY(-80deg)}
+.door-intro.open .door-bubble,.door-intro.open .door-entry,.door-intro.open .door-skip{opacity:0;transition:opacity .2s}
+.door-intro.leaving{opacity:0;transition:opacity .75s ease .2s;pointer-events:none}
+.door-intro.leaving .door-stage{transform:scale(3);transform-origin:50% 66%;transition:transform 1s cubic-bezier(.6,0,.3,1)}
+@keyframes knock{0%,50%,100%{transform:none}12%,62%{transform:translateX(-4px) rotate(-.7deg)}30%,80%{transform:translateX(2px)}}
+@media(max-height:680px){.door-intro h2{font-size:34px}.facade{height:290px;margin-top:18px}.doorway{height:210px}.door-panel.p2{display:none}.nameplate{top:18px}.door-bubble{top:44px}}
+
+/* Off the clock diorama: she putters around in pajamas. */
+dialog .off-clock-panel .oc-scene{display:block;width:100%;max-width:450px;height:auto;margin:2px auto 12px;overflow:visible}
+.oc-walker{transition:transform 1.8s ease-in-out}
+.oc-walker .oc-bob{animation:oc-breathe 3.2s ease-in-out infinite}
+.oc-walker.walking .oc-bob{animation:oc-walk .36s ease-in-out infinite}
+.oc-walker .prop{opacity:1}
+.oc-walker .prop-in{transform-box:fill-box;transform-origin:center;animation:oc-sip 3.4s ease-in-out .6s infinite}
+.oc-walker.walking .prop-in{animation:none}
+.oc-eye,.oc-bubble{transform-box:fill-box;transform-origin:center}
+.oc-eye{animation:oc-blink 4.5s infinite}
+.oc-bubble{animation:oc-bubble 1.3s ease-in-out infinite}
+.oc-glow{animation:oc-glow 3.6s ease-in-out infinite}
+@keyframes oc-breathe{50%{transform:translateY(-1.2px)}}
+@keyframes oc-walk{50%{transform:translateY(-3px)}}
+@keyframes oc-blink{0%,93%,100%{transform:none}96%{transform:scaleY(.1)}}
+@keyframes oc-bubble{50%{transform:scale(1.7);opacity:.45}}
+@keyframes oc-glow{50%{opacity:.25}}
+@keyframes oc-sip{0%,60%,100%{transform:none}28%,42%{transform:translate(-8px,5px) rotate(-12deg)}}
+
+/* Coffee chat lives on the mug in the main room. */
+.hotspot.chat-link .label-bg{fill:#526b49;stroke:#526b49}
+.hotspot.chat-link:hover .label-bg,.hotspot.chat-link:focus-visible .label-bg{fill:#465b3f;stroke:#465b3f}
+.hotspot.chat-link .label-text,.hotspot.chat-link .plus{fill:#fff}
+.hotspot.chat-link .plus{font-size:13px}
+@media(max-width:560px){.mobile-nav a{border:0;background:#526b49;color:#fff;text-decoration:none;padding:9px 12px;border-radius:20px;font-size:11px}}
+.hotspot.link-spot .plus{font-size:13px}
+
+/* Background music toggle. */
+.music-toggle{position:fixed;left:18px;bottom:18px;z-index:40;width:44px;height:44px;border-radius:50%;border:1px solid #c9cebf;background:#fffdf7;color:#526b49;display:grid;place-items:center;padding:0;box-shadow:0 4px 14px #29372718}
+.music-toggle:hover{color:#a56a3d}
+.music-toggle svg{width:20px;height:20px}
+.music-toggle.on .slash{display:none}
+.music-toggle:not(.on){color:#7b8075}
