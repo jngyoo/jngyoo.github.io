@@ -120,12 +120,12 @@ const avatar=document.querySelector('#avatar');avatar.innerHTML=`<ellipse cy="4"
 `;
 // The companion walks on her own: she follows the cursor and acts at each corner.
 const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches,actor=document.querySelector('#actor');
-const pos={x:466,y:224},goal={x:466,y:224};let facing=1,walkT=0,onArrive=null,busy=false,lastT=0;
+const pos={x:466,y:224},goal={x:466,y:224};let facing=1,walkT=0,onArrive=null,busy=false,lastT=0,wandering=false,lastActive=0;
 const frontLayer=document.querySelector('#scene-front'),chairLayer=document.querySelector('#scene-chair');let layer=null;
 function draw(bob=0){const f=pos.y>=300?2:pos.x+pos.y>455?1:0;if(f!==layer){layer=f;f===2?frontLayer.after(avatar):f===1?frontLayer.before(avatar):chairLayer.before(avatar)}const p=P(pos.x,pos.y,8);avatar.style.transform=`translate(${p[0]}px,${p[1]}px)`;actor.setAttribute('transform',`translate(0 ${bob}) scale(${facing} 1)`)}
-function move(x,y,then=null){goal.x=x;goal.y=y;onArrive=then;if(reduceMotion){pos.x=x;pos.y=y;draw();if(then){onArrive=null;then()}}}
+function move(x,y,then=null){wandering=false;goal.x=x;goal.y=y;onArrive=then;if(reduceMotion){pos.x=x;pos.y=y;draw();if(then){onArrive=null;then()}}}
 function frame(t){const k=Math.min(3,(t-lastT)/16.7||1);lastT=t;const dx=goal.x-pos.x,dy=goal.y-pos.y,d=Math.hypot(dx,dy);let bob=0;
-if(d>.6){const step=Math.min(d,Math.max(1.6,d*.1)*k);pos.x+=dx/d*step;pos.y+=dy/d*step;const sx=dx-dy;if(Math.abs(sx)>3)facing=sx<0?-1:1;walkT+=.3*k;bob=-Math.abs(Math.sin(walkT))*3}
+if(d>.6){const step=Math.min(d,(wandering?.6:Math.max(1.6,d*.1))*k);pos.x+=dx/d*step;pos.y+=dy/d*step;const sx=dx-dy;if(Math.abs(sx)>3)facing=sx<0?-1:1;walkT+=(wandering?.17:.3)*k;bob=-Math.abs(Math.sin(walkT))*3}
 else if(onArrive){const f=onArrive;onArrive=null;f()}
 draw(bob);requestAnimationFrame(frame)}
 draw();if(!reduceMotion)requestAnimationFrame(frame);
@@ -134,6 +134,11 @@ function walkTo(x,y,then=null){const a=zone(pos),b=zone({x,y}),k=a+b;let via=nul
 function showProp(id){document.querySelectorAll('#avatar .prop').forEach(p=>p.classList.toggle('on',p.dataset.prop===id));document.querySelector('#shelf-book')?.classList.toggle('taken',id==='journey')}
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 document.querySelector('#world').addEventListener('pointermove',e=>{if(reduceMotion||busy||e.pointerType!=='mouse'||document.querySelector('#panel').open)return;const svg=e.currentTarget,pt=new DOMPoint(e.clientX,e.clientY).matrixTransform(svg.getScreenCTM().inverse()),u=(pt.x-590)/.84,v=(pt.y-322)/.43;showProp(null);const fx=(u+v)/2,fy=(v-u)/2;walkTo(clamp(fx,378,470),clamp(fy,85,240))});
+// When left alone, she strolls slowly around her side of the room.
+['pointermove','pointerdown','keydown'].forEach(t=>document.addEventListener(t,()=>{lastActive=performance.now()},true));
+(function wander(){setTimeout(()=>{const settled=Math.hypot(goal.x-pos.x,goal.y-pos.y)<1&&!onArrive,dlg=document.querySelector('#panel');
+if(!reduceMotion&&!document.hidden&&!busy&&settled&&!(dlg&&dlg.open)&&!document.querySelector('#door-intro')&&performance.now()-lastActive>3000){if(zone(pos)!=='R'){walkTo(466,224);wander();return}let x,y,n=0;do{x=378+Math.random()*92;y=85+Math.random()*155}while(Math.hypot(x-pos.x,y-pos.y)<40&&++n<10);move(x,y);wandering=true}
+wander()},2500+Math.random()*4000)})();
 const spots=[{id:'projects',name:'The things I build',x:113,y:150,z:165,lx:313,ly:387,w:156,walk:[212,128],face:-1},{id:'journey',name:'A few chapters',x:390,y:45,z:158,lx:914,ly:378,w:141,walk:[300,62],face:1},{id:'notes',name:'Loose thoughts',x:92,y:340,z:48,lx:108,ly:428,w:143,walk:[152,320],face:-1},{id:'coffee',name:'Off the clock',x:312,y:132,z:98,lx:880,ly:560,w:128,walk:[384,182],face:-1}];
 document.querySelector('#hotspots').innerHTML=spots.map(s=>{const p=P(s.x,s.y,s.z),anchor=[s.lx+s.w/2,s.ly];return `<g class="hotspot" role="button" tabindex="0" aria-label="${s.name}" data-open="${s.id}"><rect x="${p[0]-32}" y="${p[1]-12}" width="64" height="80" fill="transparent" pointer-events="all"/><path class="guide" d="M${p}L${anchor}"/><circle class="beacon" cx="${p[0]}" cy="${p[1]}" r="5"/><rect class="label-bg" x="${s.lx}" y="${s.ly-16}" width="${s.w}" height="32" rx="16"/><text class="label-text" x="${s.lx+14}" y="${s.ly+4}">${s.name}</text><text class="plus" x="${s.lx+s.w-22}" y="${s.ly+5}">+</text></g>`}).join('');
 // Off the clock: a small evening corner drawn with the same blocks as the room.
