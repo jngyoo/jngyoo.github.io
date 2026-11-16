@@ -148,3 +148,22 @@ dialog .off-clock-panel .oc-scene{display:block;width:100%;max-width:450px;heigh
 .music-toggle svg{width:20px;height:20px}
 .music-toggle.on .slash{display:none}
 .music-toggle:not(.on){color:#7b8075}
+
+/* Feedback pass: one strong intro line, noun labels, a project list on hover, one contact list. */
+.intro h1{margin:14px 0 0}
+.world-wrap{margin-top:-120px}
+@media(max-width:1000px){.world-wrap{margin-top:-50px}}
+@media(max-width:560px){.world-wrap{margin-top:-6px}}
+.proj-menu{position:absolute;z-index:5;transform:translateX(-50%);min-width:230px;max-width:300px;padding:6px;background:#fffdf7;border:1px solid #d9ddcf;border-radius:14px;box-shadow:0 10px 30px #29372722}
+.proj-menu[hidden]{display:none}
+.proj-menu button{display:block;width:100%;text-align:left;border:0;background:none;padding:10px 12px;border-radius:9px;cursor:pointer}
+.proj-menu button:hover,.proj-menu button:focus-visible{background:#e5eddd;outline:none}
+.pm-title{display:block;font:500 13px 'DM Sans',sans-serif;color:#40513d}
+.pm-tag{display:block;font-size:11px;line-height:1.5;color:#7b8075;margin-top:2px}
+dialog .contact-list{list-style:none;padding:0;margin:22px 0 0;border-top:1px solid #e1e4d8}
+dialog .contact-list li{border-bottom:1px solid #e1e4d8}
+dialog .contact-list a{display:flex;align-items:center;gap:14px;padding:16px 2px;text-decoration:none;color:var(--ink)}
+dialog .contact-list svg{width:22px;height:22px;flex:none;color:#526b49}
+dialog .cl-name{font-weight:500;font-size:14px;min-width:76px}
+dialog .cl-value{font-size:13px;color:#70776b;overflow-wrap:anywhere}
+dialog .contact-list a:hover .cl-name{color:#a56a3d}
