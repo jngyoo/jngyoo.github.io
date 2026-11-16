@@ -167,3 +167,8 @@ dialog .contact-list svg{width:22px;height:22px;flex:none;color:#526b49}
 dialog .cl-name{font-weight:500;font-size:14px;min-width:76px}
 dialog .cl-value{font-size:13px;color:#70776b;overflow-wrap:anywhere}
 dialog .contact-list a:hover .cl-name{color:#a56a3d}
+dialog .project-list .post-link{display:flex;align-items:center;gap:18px}
+dialog .project-list img{width:112px;height:76px;object-fit:cover;flex:none;margin:0;border-radius:8px}
+dialog .project-list .project-text{flex:1;min-width:0}
+dialog .project-list .post-title{margin-bottom:4px}
+@media(max-width:560px){dialog .project-list img{width:84px;height:60px}}
