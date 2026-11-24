@@ -239,11 +239,12 @@ leaf.addEventListener('click',knock);form.addEventListener('submit',e=>{e.preven
 const setVol=v=>{cur=v;if(gain)gain.gain.value=v;else a.volume=v};
 function ramp(to,done){clearInterval(fade);fade=setInterval(()=>{const d=to-cur;if(Math.abs(d)<.008){setVol(to);clearInterval(fade);done&&done()}else setVol(cur+Math.sign(d)*.006)},60)}
 function sync(){btn.classList.toggle('on',want);btn.setAttribute('aria-pressed',String(want));btn.setAttribute('aria-label',want?'Turn music off':'Turn music on')}
-function start(){if(!want||!a.paused)return;
+function start(){if(!want||document.hidden)return;
+if(!a.paused){ramp(VOL);return}
 // Volume goes through a gain node because iPhones ignore audio.volume.
 if(!ctx&&(window.AudioContext||window.webkitAudioContext)){try{ctx=new (window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain.gain.value=0;ctx.createMediaElementSource(a).connect(gain);gain.connect(ctx.destination);a.volume=1}catch(e){ctx=gain=null}}
-if(ctx&&ctx.state==='suspended')ctx.resume();setVol(0);a.play().then(()=>{started=true;ramp(VOL)}).catch(()=>{})}
+if(ctx&&ctx.state==='suspended')ctx.resume();setVol(0);a.play().then(()=>{started=true;if(want&&!document.hidden)ramp(VOL);else a.pause()}).catch(()=>{})}
 btn.addEventListener('click',()=>{want=!want;try{localStorage.setItem('music',want?'on':'off')}catch(e){}sync();if(want)start();else ramp(0,()=>a.pause())});
-['pointerdown','keydown'].forEach(t=>document.addEventListener(t,e=>{if(!e.target.closest||!e.target.closest('#music'))start()},true));
+['pointerdown','keydown'].forEach(t=>document.addEventListener(t,e=>{if(a.paused&&(!e.target.closest||!e.target.closest('#music')))start()},true));
 document.addEventListener('visibilitychange',()=>{if(document.hidden)a.pause();else if(want&&started)start()});
 sync()})();
