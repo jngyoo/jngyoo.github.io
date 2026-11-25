@@ -226,7 +226,7 @@ posts.forEach(p=>{content['post-'+p.id]=`<div class="post"><button class="back-l
 const panel=document.querySelector('#panel'),visited=new Set();let previousFocus=null;
 let goTimer=null;
 function go(trigger){const id=trigger.dataset.open,spot=spots.find(s=>s.id===id);clearTimeout(goTimer);if(!spot||reduceMotion||panel.open||!trigger.classList.contains('hotspot')){busy=false;openPanel(id);return}busy=true;const open=()=>{clearTimeout(goTimer);if(!busy)return;busy=false;openPanel(id)};walkTo(...spot.walk,()=>{facing=spot.face;showProp(id);clearTimeout(goTimer);goTimer=setTimeout(open,800)});goTimer=setTimeout(open,3200)}
-// Visit log: anonymous events sent to GoatCounter (ujinjg.goatcounter.com).
+// Visit log: anonymous events sent to GoatCounter (jngyoo.goatcounter.com).
 // Paths: open/<corner>, click/<link>, door/<step>, visitor/<name> (only when a visitor types a name).
 const track=(path,title)=>{const send=()=>{try{window.goatcounter.count({path,title:title||path,event:true})}catch(e){}};if(window.goatcounter&&window.goatcounter.count)send();else{let n=0;const t=setInterval(()=>{if(window.goatcounter&&window.goatcounter.count){clearInterval(t);send()}else if(++n>20)clearInterval(t)},500)}};
 const LINK_NAMES=[['project-w6d1t.vercel.app','play-hodu'],['jobswitch','play-jobswitch'],['mailto:','email'],['linkedin.com','linkedin'],['github.com','github'],['calendar.app.google','coffee-chat']];
