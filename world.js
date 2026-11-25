@@ -249,6 +249,18 @@ box.innerHTML=sections.map(([id,label,html])=>`<section class="lv-sec" id="lv-${
 const set=(list,push)=>{document.body.classList.toggle('list-mode',list);box.hidden=!list;link.textContent=list?'← Back to the room':'Skim everything on one page →';link.setAttribute('href',list?'#room':'#list');if(push)track(list?'view/list':'view/room')};
 link.addEventListener('click',e=>{e.preventDefault();const list=!document.body.classList.contains('list-mode');try{history.replaceState(null,'',list?'#list':location.pathname+location.search)}catch(x){}set(list,true);if(!list)scrollTo({top:0})});
 set(location.hash==='#list',false);addEventListener('hashchange',()=>set(location.hash==='#list',false))})();
+// Phones: the room's SVG labels shrink to a few pixels, so draw real-size HTML labels over the same spots.
+(function(){const wrap=document.querySelector('.world-wrap'),svg=document.querySelector('#world');if(!wrap||!svg)return;
+const layer=document.createElement('div');layer.className='m-labels';wrap.append(layer);const mq=matchMedia('(max-width:560px)');
+const items=[...document.querySelectorAll('#hotspots .hotspot')].map(h=>{const text=(h.querySelector('.label-text')||{}).textContent||h.getAttribute('aria-label')||'';
+let el;if(h.dataset.open){el=document.createElement('button');el.type='button';el.dataset.open=h.dataset.open}else{el=document.createElement('a');el.href=h.getAttribute('href');el.target='_blank';el.rel='noopener noreferrer'}
+el.className='m-label'+(h.classList.contains('chat-link')?' m-label-chat':'');el.textContent=text.trim();el.setAttribute('aria-label',h.getAttribute('aria-label')||text);layer.append(el);return{h,el}});
+const place=()=>{layer.hidden=!mq.matches;if(!mq.matches)return;const W=wrap.getBoundingClientRect(),pad=8;
+items.forEach(({h,el})=>{const r=(h.querySelector('.label-bg')||h).getBoundingClientRect(),w=el.offsetWidth,ht=el.offsetHeight;let x=r.left+r.width/2-W.left-w/2,y=r.top+r.height/2-W.top-ht/2;x=Math.max(pad,Math.min(W.width-w-pad,x));el._x=x;el._y=y;el._w=w;el._h=ht});
+// nudge apart any labels that collide: move the later one right, or below if there is no room
+const els=items.map(i=>i.el).sort((a,b)=>a._x-b._x);for(let i=0;i<els.length;i++)for(let j=0;j<i;j++){const a=els[j],b=els[i];if(b._x<a._x+a._w+6&&a._x<b._x+b._w+6&&b._y<a._y+a._h+6&&a._y<b._y+b._h+6){const nx=a._x+a._w+6;if(nx+b._w<=W.width-pad)b._x=nx;else b._y=a._y+a._h+6}}
+els.forEach(el=>{el.style.transform=`translate(${Math.round(el._x)}px,${Math.round(el._y)}px)`})};
+addEventListener('resize',place);mq.addEventListener('change',place);if(document.fonts)document.fonts.ready.then(place);setTimeout(place,300);place()})();
 function reset(){busy=false;clearTimeout(goTimer);showProp(null);walkTo(466,224);if(panel.open)panel.close();const t=document.querySelector('#toast');t.textContent='Back home. Make yourself comfortable.';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
 document.querySelector('.brand').onclick=e=>{e.preventDefault();reset()};
 
