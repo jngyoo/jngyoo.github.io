@@ -177,3 +177,5 @@ dialog .project-facts{display:grid;grid-template-columns:repeat(3,auto);justify-
 dialog .project-facts dt{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#8b917f;margin-bottom:4px}
 dialog .project-facts dd{margin:0;font-size:13px;color:var(--ink)}
 @media(max-width:560px){dialog .project-facts{grid-template-columns:1fr 1fr}}
+
+.door-note{flex-basis:100%;margin:10px 0 0;font-size:11.5px;color:#737b6c}
