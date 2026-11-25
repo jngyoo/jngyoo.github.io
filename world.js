@@ -242,6 +242,13 @@ let t=null;const place=()=>{const r=wrap.getBoundingClientRect(),pt=new DOMPoint
 const show=()=>{clearTimeout(t);if(panel.open)return;place();menu.hidden=false},hide=()=>{clearTimeout(t);t=setTimeout(()=>{menu.hidden=true},200)};
 hot.addEventListener('pointerenter',show);hot.addEventListener('pointerleave',hide);hot.addEventListener('focus',show);hot.addEventListener('blur',hide);
 menu.addEventListener('pointerenter',()=>clearTimeout(t));menu.addEventListener('pointerleave',hide);menu.addEventListener('focusin',()=>clearTimeout(t));menu.addEventListener('focusout',hide);menu.addEventListener('click',()=>{menu.hidden=true})})();
+// List view: the same content as the room, as one plain page (#list links straight to it).
+(function(){const box=document.querySelector('#list-view'),link=document.querySelector('#view-link');if(!box||!link)return;
+const sections=[['projects','Projects',projects.map(p=>`<article class="lv-project">${projectPanel(p)}</article>`).join('')],['journey','Experience',content.journey],...(posts.length?[['notes','Writing',content.notes]]:[]),['contact','Contact',content.contact]];
+box.innerHTML=sections.map(([id,label,html])=>`<section class="lv-sec" id="lv-${id}" aria-labelledby="lv-${id}-t"><h2 class="lv-title" id="lv-${id}-t">${label}</h2>${html}</section>`).join('');
+const set=(list,push)=>{document.body.classList.toggle('list-mode',list);box.hidden=!list;link.textContent=list?'← Back to the room':'Skim everything on one page →';link.setAttribute('href',list?'#room':'#list');if(push)track(list?'view/list':'view/room')};
+link.addEventListener('click',e=>{e.preventDefault();const list=!document.body.classList.contains('list-mode');try{history.replaceState(null,'',list?'#list':location.pathname+location.search)}catch(x){}set(list,true);if(!list)scrollTo({top:0})});
+set(location.hash==='#list',false);addEventListener('hashchange',()=>set(location.hash==='#list',false))})();
 function reset(){busy=false;clearTimeout(goTimer);showProp(null);walkTo(466,224);if(panel.open)panel.close();const t=document.querySelector('#toast');t.textContent='Back home. Make yourself comfortable.';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
 document.querySelector('.brand').onclick=e=>{e.preventDefault();reset()};
 
